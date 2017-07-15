@@ -19,7 +19,10 @@ tar czvf $GZDumpFile $DumpFile >> $LogFile 2>&1
 echo "[$GZDumpFile]Backup Success!" >> $LogFile 
 rm -f $DumpFile 
 #cd $BackDir/daily
-cd $BackDir   
+cd $BackDir
+git add .
+git commit -m "备份日期:`date '+%Y%m%d %T'`"
+git push origin master   
 echo "Backup Done!"
 echo "please Check $BackDir Directory!"
 echo "copy it to your local disk or ftp to somewhere !!!"
